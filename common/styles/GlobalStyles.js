@@ -48,6 +48,18 @@ export default {
         marginLeft: _(6),
         fontFamily: 'STYuanti-SC-Bold',
     },
+    text_md: {
+        lineHeight: _(22),
+        fontSize: _(16),
+        color: T.color_text_base,
+        fontFamily: 'STYuanti-SC-Bold',
+    },
+    text_small: {
+        lineHeight: _(15),
+        fontSize: _(10),
+        color: T.color_text_secondary,
+        fontFamily: 'STYuanti-SC-Bold',
+    },
 
     // 输入框
     input_xs: {},
@@ -98,7 +110,19 @@ export default {
         height: _(44),
     },
     buttonTitle: {fontWeight: "bold", fontSize: _(20), lineHeight: _(27)},
-
+    followButton: {
+        width:_(40),
+        height: _(22),
+        borderRadius: _(4),
+        borderColor: T.brand_primary,
+        borderWidth: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    followButtonText: {
+        ... this.text_md,
+        color: T.brand_primary,
+    },
 
     //  shadow
     shadow: {

@@ -46,20 +46,58 @@ export default class Home extends PageBase
     renderItem(item: Object) {
         return (
             <BoxShadow setting={{...G.shadow, width:_(363),
-                height: _(363)}}>
+                height: _(427)}}>
                 <View style={{
-                    borderRadius: _(6),
-                    width: '100%',
-                    height: '100%',
+                    width: _(363),
+                    height: _(64),
+                    backgroundColor: '#f8ff97',
+                    borderTopRightRadius: _(6),
+                    borderTopLeftRadius: _(6),
+                    padding: _(6),
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                }}>
+                    <View style={{width: _(46), height: '100%'}}>
+                        <FastImage style={{backgroundColor: '#9dffce', width: _(46), height: _(46), borderRadius: _(23)}}/>
+                    </View>
+                    <View style={{
+                        width: _(299),
+                        height: '100%',
+                    }}>
+                        <View style={{
+                            width: '100%',
+                            height: _(64 / 3 ),
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                        }}>
+                            <Text style={[G.text_md]}>模特网名</Text>
+                            <TouchableOpacity style={G.followButton}>
+                                <Text style={G.followButtonText}>关注</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={[G.text_small]}>asdasdsadsadsadsadsadsadsaasdasdsadsadsadsadsadsadsaasdasdsadsadsadsadsadsadsaasdasdsadsadsadsadsadsadsaasdasdsadsadsadsadsadsadsaasdasdsadsadsadsadsadsadsa</Text>
+                    </View>
+                </View>
+                <View style={{
+                    borderBottomRightRadius: _(6),
+                    borderBottomLeftRadius: _(6),
+                    flex: 1,
                     backgroundColor: '#fff',
                     padding: _(6),
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                 }}>
+
                     <TouchableOpacity style={styles.imageContent}>
                         <FastImage
-                            source={require('../resource/images/9dbef4cfgw1f3oz4j8k1bj20q913daej.jpg')}
-                            style={{width: '100%', height: '100%', borderRadius: _(6)}}/>
+                            //source={require('../resource/images/9dbef4cfgw1f3oz4j8k1bj20q913daej.jpg')}
+                            style={{
+                                backgroundColor: '#ffacab',
+                                width: '100%',
+                                height: '100%',
+                                borderRadius: _(6)}}
+                        />
                     </TouchableOpacity>
                     <View style={[
                         styles.imageContent,
@@ -72,13 +110,13 @@ export default class Home extends PageBase
                         }]
                     }>
                         <FastImage
-                            source={require('../resource/images/9dbef4cfgw1f3oz4n2uocj20q90hi0ud.jpeg')}
+                            // source={require('../resource/images/9dbef4cfgw1f3oz4n2uocj20q90hi0ud.jpeg')}
                             style={styles.smallImageItem}/>
                         <FastImage
-                            source={require('../resource/images/9dbef4cfgw1f3oz4n2uocj20q90hi0ud.jpeg')}
+                            // source={require('../resource/images/9dbef4cfgw1f3oz4n2uocj20q90hi0ud.jpeg')}
                             style={styles.smallImageItem}/>
                         <FastImage
-                            source={require('../resource/images/9dbef4cfgw1f3oz4n2uocj20q90hi0ud.jpeg')}
+                            // source={require('../resource/images/9dbef4cfgw1f3oz4n2uocj20q90hi0ud.jpeg')}
                             style={styles.smallImageItem}/>
 
                     </View>
@@ -201,6 +239,7 @@ const styles = StyleSheet.create({
         height: _(112),
         borderRadius: _(6),
         borderWidth: 0,
-        borderColor: '#cccccc'
+        borderColor: '#cccccc',
+        backgroundColor: '#ff8b5d'
     },
 });

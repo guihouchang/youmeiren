@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import {inject, observer} from "mobx-react";
 import PageBase from "./PageBase";
+import SplashScreen from 'react-native-splash-screen'
 
 @inject('store')
 @observer
@@ -29,6 +30,7 @@ export default class AuthLoading extends PageBase {
 
     componentDidMount(): void {
         super.componentDidMount();
+        SplashScreen.hide();
     }
 
     // Fetch the token from storage then navigate to our appropriate place
