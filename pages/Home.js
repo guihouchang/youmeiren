@@ -7,9 +7,9 @@ import T from '../common/styles/Theme';
 import G from '../common/styles/GlobalStyles';
 import {_, __} from 'react-native-scale-size';
 import BoxShadow from "react-native-shadow/lib/BoxShadow";
-import { UltimateListView, UltimateRefreshView } from 'react-native-ultimate-listview'
+import { UltimateListView } from 'react-native-ultimate-listview'
 import {inject, observer} from "mobx-react";
-import {getList} from "../api/loan";
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 @inject('store')
 @observer
@@ -76,7 +76,7 @@ export default class Home extends PageBase
                                 <Text style={G.followButtonText}>关注</Text>
                             </TouchableOpacity>
                         </View>
-                        <Text style={[G.text_small]}>asdasdsadsadsadsadsadsadsaasdasdsadsadsadsadsadsadsaasdasdsadsadsadsadsadsadsaasdasdsadsadsadsadsadsadsaasdasdsadsadsadsadsadsadsaasdasdsadsadsadsadsadsadsa</Text>
+                        <Text style={[G.text_small]}>asdasdsasa</Text>
                     </View>
                 </View>
                 <View style={{
@@ -118,8 +118,21 @@ export default class Home extends PageBase
                         <FastImage
                             // source={require('../resource/images/9dbef4cfgw1f3oz4n2uocj20q90hi0ud.jpeg')}
                             style={styles.smallImageItem}/>
-
                     </View>
+                    <TouchableOpacity style={{
+                        position: 'absolute',
+                        width: _(363),
+                        height: _(40),
+                        flexDirection: 'row',
+                        justifyContent: 'flex-start',
+                        alignItems: 'center',
+                        padding: _(6),
+                        bottom: _(6),
+                        left:_(6),
+                    }}>
+                        <AntDesign size={_(18)} color={"#ff2e2e"} name={'heart'}/>
+                        <Text style={[G.text_small, {marginLeft: _(6)}]}>9999</Text>
+                    </TouchableOpacity>
                 </View>
             </BoxShadow>
         )
