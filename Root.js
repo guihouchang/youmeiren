@@ -12,10 +12,11 @@ import Suggest from "./pages/Suggest";
 import About from "./pages/About";
 import T from './common/styles/Theme';
 import Show from "./pages/Show";
+import Person from "./pages/Person";
 
 const HomeStack = createStackNavigator({
     Home: Home,
-    Show: Show,
+    Person: Person,
 }, {
     defaultNavigationOptions: {
         headerTransparent: false,

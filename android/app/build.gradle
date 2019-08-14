@@ -107,6 +107,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        renderscriptSupportModeEnabled true
     }
 
     signingConfigs {
@@ -149,6 +150,8 @@ android {
 }
 
 dependencies {
+    implementation project(':@react-native-community_blur')
+    implementation project(':react-native-linear-gradient')
     implementation project(':react-native-splash-screen')
     implementation project(':react-native-fast-image')
     implementation project(':react-native-svg')

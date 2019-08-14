@@ -7,9 +7,10 @@ import T from '../common/styles/Theme';
 import G from '../common/styles/GlobalStyles';
 import {_, __} from 'react-native-scale-size';
 import BoxShadow from "react-native-shadow/lib/BoxShadow";
-import { UltimateListView } from 'react-native-ultimate-listview'
+import { UltimateListView } from 'react-native-ultimate-listview';
 import {inject, observer} from "mobx-react";
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 @inject('store')
 @observer
@@ -57,9 +58,11 @@ export default class Home extends PageBase
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                 }}>
-                    <View style={{width: _(46), height: '100%'}}>
+                    <TouchableOpacity onPress={() => {
+                        this.props.navigation.navigate('Person');
+                    }} style={{width: _(46), height: '100%'}}>
                         <FastImage style={{backgroundColor: '#9dffce', width: _(46), height: _(46), borderRadius: _(23)}}/>
-                    </View>
+                    </TouchableOpacity>
                     <View style={{
                         width: _(299),
                         height: '100%',
@@ -89,7 +92,7 @@ export default class Home extends PageBase
                     justifyContent: 'space-between',
                 }}>
 
-                    <TouchableOpacity style={styles.imageContent}>
+                    <TouchableOpacity style={G.imageContent}>
                         <FastImage
                             //source={require('../resource/images/9dbef4cfgw1f3oz4j8k1bj20q913daej.jpg')}
                             style={{
@@ -100,7 +103,7 @@ export default class Home extends PageBase
                         />
                     </TouchableOpacity>
                     <View style={[
-                        styles.imageContent,
+                        G.imageContent,
                         {
                             justifyContent: 'space-between',
                             flexDirection: 'column',
@@ -111,28 +114,32 @@ export default class Home extends PageBase
                     }>
                         <FastImage
                             // source={require('../resource/images/9dbef4cfgw1f3oz4n2uocj20q90hi0ud.jpeg')}
-                            style={styles.smallImageItem}/>
+                            style={G.smallImageItem}/>
                         <FastImage
                             // source={require('../resource/images/9dbef4cfgw1f3oz4n2uocj20q90hi0ud.jpeg')}
-                            style={styles.smallImageItem}/>
+                            style={G.smallImageItem}/>
                         <FastImage
                             // source={require('../resource/images/9dbef4cfgw1f3oz4n2uocj20q90hi0ud.jpeg')}
-                            style={styles.smallImageItem}/>
+                            style={G.smallImageItem}/>
                     </View>
-                    <TouchableOpacity style={{
+                    <View style={{
                         position: 'absolute',
-                        width: _(363),
+                        width: _(349),
                         height: _(40),
                         flexDirection: 'row',
-                        justifyContent: 'flex-start',
+                        justifyContent: 'space-between',
                         alignItems: 'center',
-                        padding: _(6),
+                        paddingHorizontal: _(12),
                         bottom: _(6),
                         left:_(6),
                     }}>
-                        <AntDesign size={_(18)} color={"#ff2e2e"} name={'heart'}/>
-                        <Text style={[G.text_small, {marginLeft: _(6)}]}>9999</Text>
-                    </TouchableOpacity>
+                        <View style={{flexDirection: 'row'}}><AntDesign size={_(18)} color={"#ff2e2e"} name={'heart'}/>
+                            <Text style={[G.text_small, {marginLeft: _(6)}]}>9999</Text></View>
+                        <View style={{flexDirection: 'row'}}>
+                            <FontAwesome size={_(18)} color={"#fff"} name={'photo'}/>
+                            <Text style={[G.text_small, {textAlign: 'right', color: '#fff', marginLeft: _(6)}]}>40</Text>
+                        </View>
+                    </View>
                 </View>
             </BoxShadow>
         )

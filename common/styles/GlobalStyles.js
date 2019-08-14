@@ -48,6 +48,12 @@ export default {
         marginLeft: _(6),
         fontFamily: 'STYuanti-SC-Bold',
     },
+    text_lm: {
+        lineHeight: _(27),
+        fontSize: _(19),
+        color: T.color_text_base,
+        fontFamily: 'STYuanti-SC-Bold',
+    },
     text_md: {
         lineHeight: _(22),
         fontSize: _(16),
@@ -136,6 +142,25 @@ export default {
         y:0,
     },
     base_size_width: _(SIZE_MATTERS_BASE_WIDTH),
-    base_size_height: _(SIZE_MATTERS_BASE_HEIGHT)
+    base_size_height: _(SIZE_MATTERS_BASE_HEIGHT),
+    imageContent: {
+        borderRadius: _(6),
+        width: _(230),
+        height: '100%',
+        borderWidth: 0,
+        borderColor: '#cccccc'
+    },
+    smallImageContent: {
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+    },
+    smallImageItem: {
+        width: _(112),
+        height: _(112),
+        borderRadius: _(6),
+        borderWidth: 0,
+        borderColor: '#cccccc',
+        backgroundColor: '#ff8b5d'
+    },
 }
 
