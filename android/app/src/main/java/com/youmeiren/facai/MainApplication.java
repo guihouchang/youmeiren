@@ -3,7 +3,8 @@ package com.youmeiren.facai;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.brentvatne.react.ReactVideoPackage;
+import com.brentvatne.react.ReactVideoPackage;
+
 import com.BV.LinearGradient.LinearGradientPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.dylanvann.fastimage.FastImageViewPackage;
@@ -31,7 +32,6 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new ReactVideoPackage(),
-            new BlurViewPackage(),
             new LinearGradientPackage(),
             new SplashScreenReactPackage(),
             new FastImageViewPackage(),
