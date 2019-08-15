@@ -13,10 +13,14 @@ import About from "./pages/About";
 import T from './common/styles/Theme';
 import Show from "./pages/Show";
 import Person from "./pages/Person";
+import ImageDetail from "./pages/ImageDetail";
+import VideoDetail from "./pages/VideoDetail";
 
 const HomeStack = createStackNavigator({
     Home: Home,
     Person: Person,
+    ImageDetail: ImageDetail,
+    VideoDetail: VideoDetail,
 }, {
     defaultNavigationOptions: {
         headerTransparent: false,
