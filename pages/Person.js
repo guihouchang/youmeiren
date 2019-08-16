@@ -13,7 +13,6 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import { Header } from 'react-navigation';
-import { BlurView, VibrancyView } from "@react-native-community/blur";
 
 @inject('store')
 @observer
@@ -49,6 +48,11 @@ export default class Person extends PageBase {
 
     imageLoaded() {
         console.log(12313213)
+
+    }
+
+    componentDidMount(): void {
+        super.componentDidMount();
         this.setState({ viewRef: findNodeHandle(this.backgroundImage) });
     }
 
@@ -134,12 +138,6 @@ export default class Person extends PageBase {
             }}>
 
                 <TouchableOpacity style={G.imageContent}>
-                    <BlurView
-                        style={styles.absolute}
-                        viewRef={this.state.viewRef}
-                        blurType="light"
-                        blurAmount={10}
-                    />
                     <FastImage
                         source={require('../resource/images/9dbef4cfgw1f3oz4j8k1bj20q913daej.jpg')}
                         ref={img => {

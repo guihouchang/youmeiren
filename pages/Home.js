@@ -1,5 +1,15 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, StatusBar, TouchableOpacity, ImageBackground, Image} from 'react-native';
+import {
+    Platform,
+    StyleSheet,
+    Text,
+    View,
+    StatusBar,
+    TouchableOpacity,
+    ImageBackground,
+    Image,
+    Dimensions
+} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {Carousel} from 'teaset';
 import PageBase from "./PageBase";
@@ -11,6 +21,7 @@ import { UltimateListView } from 'react-native-ultimate-listview';
 import {inject, observer} from "mobx-react";
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 
 @inject('store')
 @observer
@@ -18,18 +29,24 @@ export default class Home extends PageBase
 {
     static navigationOptions = ({ navigation, navigationOptions }) => {
         return {
-            header: null,
+            header: null
         };
     };
+
+    state = {
+        index: 0,
+        routes: [
+            {key: 'newest', title: '最新'},
+            {key: 'hot', title: '最热'},
+        ],
+        dataList: [1, 2, 3, 4],
+        bannerList: [1, 2, 3],
+        loading: false,
+    }
 
     constructor(props)
     {
         super(props)
-        this.state = {
-            dataList: [1, 2, 3, 4],
-            bannerList: [1, 2, 3],
-            loading: false,
-        }
     }
 
     componentWillMount(): void {
@@ -92,7 +109,9 @@ export default class Home extends PageBase
                     justifyContent: 'space-between',
                 }}>
 
-                    <TouchableOpacity style={G.imageContent}>
+                    <TouchableOpacity onPress={()=> {
+                        this.props.navigation.navigate('VideoDetail')
+                    }} style={G.imageContent}>
                         <FastImage
                             //source={require('../resource/images/9dbef4cfgw1f3oz4j8k1bj20q913daej.jpg')}
                             style={{
@@ -203,30 +222,84 @@ export default class Home extends PageBase
         );
     }
 
+    NewestRoute = () => (
+        <View style={{
+            flex: 1,
+        }}>
+            <UltimateListView
+                onFetch={this.onFetch}
+                contentContainerStyle={{alignItems: 'center'}}
+                keyExtractor={this.keyExtractor}
+                item={(item) => this.renderItem(item)}
+                header={() => {
+                    return this.renderHeader()
+                }}
+                separator={() => <View style={{width: "100%", height: _(12)}}></View>}
+                scrollEnabled={true}
+            />
+        </View>
+    );
+
+    HotRoute = () => (
+        <View style={{
+            flex: 1,
+        }}>
+            <UltimateListView
+                onFetch={this.onFetch}
+                contentContainerStyle={{alignItems: 'center'}}
+                keyExtractor={this.keyExtractor}
+                item={(item) => this.renderItem(item)}
+                header={() => {
+                    return this.renderHeader()
+                }}
+                separator={() => <View style={{width: "100%", height: _(12)}}></View>}
+                scrollEnabled={true}
+            />
+        </View>
+    )
+
+
     onFetch = async(page = 1, startFetch, abortFetch) => {
         startFetch(this.state.dataList, 20)
     };
 
 
+    renderTabBar(props)
+    {
+        return (
+            <TabBar {...props}
+                    style={{backgroundColor: T.brand_primary}}
+                    indicatorStyle={{backgroundColor: '#fff'}}
+                    labelStyle={[G.sub_title_text, {color: '#fff'}]}
+                    pressOpacity={0.2}
+                    pressColor={'#000'}
+                    tabStyle={{
+                        width: _(80),
+                    }}
+                    // renderIcon={(routes) => {
+                    //     console.log(routes)
+                    //     if (routes.route.key != 'newest')
+                    //         return (<FontAwesome name={'fire'} size={_(20)} color={'#fff'}/> )
+                    //     else
+                    //         return (<AntDesign name={'clockcircleo'} size={_(20)} color={'#fff'}/> )
+                    //
+                    // }}
+            />);
+    }
+
     render()
     {
         return (
-            <View style={{
-                flex: 1,
-            }}>
-                <UltimateListView
-                    ref={"refresh"}
-                    onFetch={this.onFetch}
-                    contentContainerStyle={{alignItems: 'center'}}
-                    keyExtractor={this.keyExtractor}
-                    item={(item) => this.renderItem(item)}
-                    header={() => {
-                        return this.renderHeader()
-                    }}
-                    separator={() => <View style={{width: "100%", height: _(12)}}></View>}
-                    scrollEnabled={true}
-                />
-            </View>
+            <TabView
+                navigationState={this.state}
+                renderScene={SceneMap({
+                    newest: this.NewestRoute,
+                    hot: this.HotRoute,
+                })}
+                onIndexChange={index => this.setState({ index })}
+                initialLayout={{ width: Dimensions.get('window').width }}
+                renderTabBar={props => this.renderTabBar(props)}
+            />
         );
     }
 }
@@ -235,7 +308,7 @@ const styles = StyleSheet.create({
     wrapper: {
         width: G.base_size_width,
         height: _(167),
-        backgroundColor: '#559BAE',
+        backgroundColor: '#fff',
         marginBottom: _(12),
     },
     containerHorizontal: {

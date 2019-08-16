@@ -21,6 +21,7 @@
     "react-native-image-zoom-viewer": "^2.2.26",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
     "react-native-linear-gradient": "^2.5.6",
+    "react-native-reanimated": "^1.2.0",
     "react-native-refresh-list-view": "^1.0.10",
     "react-native-scale-size": "git+https://github.com/guihouchang/react-native-scale-size.git",
     "react-native-shadow": "^1.2.2",
@@ -30,6 +31,7 @@
     "react-native-ultimate-listview": "^3.3.0",
     "react-native-vector-icons": "^6.6.0",
     "react-native-video": "^5.0.0",
+    "react-native-video-controls": "^2.2.3",
     "react-navigation": "^3.11.0",
     "teaset": "^0.6.3",
     "validator": "^11.1.0"

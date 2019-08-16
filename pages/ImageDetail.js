@@ -57,7 +57,12 @@ const images = [{
 export default class ImageDetail extends PageBase {
     static navigationOptions = ({ navigation, navigationOptions }) => {
         return {
-            title: '浏览详情',
+            headerTransparent: true,
+            headerStyle: {
+                backgroundColor:  null ,
+                borderBottomWidth: 0,
+                shadowOpacity: 0,
+            },
         };
     };
 

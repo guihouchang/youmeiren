@@ -52,6 +52,40 @@ HomeStack.navigationOptions = ({ navigation }) => {
 
 }
 
+const VideoStack = createStackNavigator({
+    About: About,
+}, {
+    defaultNavigationOptions: {
+        headerTransparent: true,
+        headerStyle: {
+            backgroundColor: T.brand_primary,
+            borderBottomWidth: 0,
+            shadowOpacity: 0,
+
+        },
+        headerRight: <View/>,
+        headerTitleStyle: {
+            fontSize: _(21),
+            fontWeight: '400',
+            flex:1,
+            textAlign: 'center'
+        },
+        headerTintColor: '#fff',
+    }
+});
+
+VideoStack.navigationOptions = ({ navigation }) => {
+    let tabBarVisible = false;
+    if (navigation.state.index === 0)
+    {
+        tabBarVisible = true;
+    }
+
+    return  {tabBarVisible}
+
+}
+
+
 const MineStack = createStackNavigator({
     Mine: Mine,
     About: About,
@@ -116,6 +150,7 @@ const Root = createBottomTabNavigator(
     // Order: { screen: Order }
     {
         首页: HomeStack,
+        视频: VideoStack,
         我的: MineStack,
     },
     {
@@ -127,13 +162,10 @@ const Root = createBottomTabNavigator(
                 if (routeName === '首页')
                 {
                     iconName = 'home';
-                } else if (routeName === '计划')
-                {
-                    iconName = `paper-plane`;
                 }
-                else if (routeName === '钱包')
+                else if (routeName === '视频')
                 {
-                    iconName = `wallet`;
+                    iconName = `video`;
                 }
                 else if (routeName === '我的')
                 {
